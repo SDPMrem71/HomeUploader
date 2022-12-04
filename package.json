@@ -1,32 +1,38 @@
 {
-  "name": "filing-saucer",
-  "version": "1.0.0",
-  "description": "A file sharing server, intended to be the successor to A-Share! Users may use an API via POST and GET requests to exchange files.",
-  "main": "main.js",
-  "bin": "main.js",
+  "name": "home-uploader",
+  "version": "1.2.4",
+  "description": "A file sharing server",
+  "main": "HomeUploader.js",
+  "bin": "HomeUploader.js",
   "scripts": {
-    "test": "node main.js",
-    "archive": "tar --exclude='./content/**' --exclude='./node_modules/**' --exclude='./.git/**' --exclude='./.env' --exclude='./filing-saucer.tar.gz' -cvzf filing-saucer.tar.gz ./"
+    "test": "node HomeUploader.js",
+    "archive": "tar --exclude='./content/**' --exclude='./node_modules/**' --exclude='./.git/**' --exclude='./.env' --exclude='./filing-saucer.tar.gz' -cvzf filing-saucer.tar.gz ./",
+    "StartServer": "pm2 start HomeUploader.js",
+    "StopServer": "pm2 stop HomeUploader.js",
+    "RestartServer": "pm2 restart HomeUploader.js",
+    "DeleteServer": "pm2 delete HomeUploader.js",
+    "info": "pm2 describe HomeUploader.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aerial-Laptop/Filing-Saucer.git"
+    "url": "https://github.com/SDPMrem71/HomeUploader"
   },
-  "author": "enbyte",
+  "author": "Masoud Rahmani",
   "license": "GPL-3.0-only",
-  "bugs": {
-    "url": "https://github.com/Aerial-Laptop/Filing-Saucer/issues"
-  },
-  "homepage": "https://github.com/Aerial-Laptop/Filing-Saucer#readme",
+  "homepage": "https://github.com/SDPMrem71/HomeUploader",
   "dependencies": {
     "colors": "^1.4.0",
     "command-line-args": "^5.2.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
-    "express": "^4.17.3",
-    "express-rate-limit": "^6.4.0",
-    "multer": "^1.4.4",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "multer": "^1.4.5-lts.1",
+    "pm2": "^5.2.2",
     "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
