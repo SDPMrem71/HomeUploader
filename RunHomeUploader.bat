@@ -1,6 +1,14 @@
 echo off
 cls
 
+rem ---------- for Argument passing --------------
+SET UserChoice=%1
+
+if NOT "%UserChoice%" == "" (
+    goto Selection
+    )
+rem ---------------------------------------------
+
 echo [1] Start Server
 echo [2] Stop Server
 echo [3] Restart Server
@@ -9,17 +17,17 @@ echo [5] Show Detail
 
 CHOICE /C 123456 /n /T 15 /D 6 /M "(Exits after 15 second):"
 
-echo %ERRORLEVEL%
+SET UserChoice=%ERRORLEVEL%
 
-if %ERRORLEVEL%==1 (goto StartServer)
-if %ERRORLEVEL%==2 (goto StopServer)
-if %ERRORLEVEL%==3 (goto RestartServer)
-if %ERRORLEVEL%==4 (goto DeleteServer)
-if %ERRORLEVEL%==5 (goto ShowDetail)
-if %ERRORLEVEL%==6 (goto NoSelection)
+rem echo %ERRORLEVEL%
 
-
-
+:Selection
+if %UserChoice%==1 (goto StartServer)
+if %UserChoice%==2 (goto StopServer)
+if %UserChoice%==3 (goto RestartServer)
+if %UserChoice%==4 (goto DeleteServer)
+if %UserChoice%==5 (goto ShowDetail)
+if %UserChoice%==6 (goto NoSelection)
 
 
 
