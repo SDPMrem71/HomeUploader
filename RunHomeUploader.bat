@@ -15,7 +15,7 @@ if %ERRORLEVEL%==1 (goto StartServer)
 if %ERRORLEVEL%==2 (goto StopServer)
 if %ERRORLEVEL%==3 (goto RestartServer)
 if %ERRORLEVEL%==4 (goto DeleteServer)
-if %ERRORLEVEL%==5 (goto info)
+if %ERRORLEVEL%==5 (goto ShowDetail)
 if %ERRORLEVEL%==6 (goto exit)
 
 

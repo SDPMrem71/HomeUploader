@@ -8,10 +8,10 @@
     "test": "node HomeUploader.js",
     "archive": "tar --exclude='./content/**' --exclude='./node_modules/**' --exclude='./.git/**' --exclude='./.env' --exclude='./filing-saucer.tar.gz' -cvzf filing-saucer.tar.gz ./",
     "StartServer": "pm2 start HomeUploader.js",
-    "StopServer": "pm2 stop HomeUploader.js",
-    "RestartServer": "pm2 restart HomeUploader.js",
-    "DeleteServer": "pm2 delete HomeUploader.js",
-    "info": "pm2 describe HomeUploader.js"
+    "StopServer": "pm2 stop HomeUploader",
+    "RestartServer": "pm2 restart HomeUploader",
+    "DeleteServer": "pm2 delete HomeUploader",
+    "info": "pm2 describe HomeUploader"
   },
   "repository": {
     "type": "git",
