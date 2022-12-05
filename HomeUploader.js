@@ -1,17 +1,34 @@
+'use strict'
+
 global.__basedir = __dirname;
 global.__scriptsDir = __dirname + '/scripts';
 global.__registryDir = __dirname + '/content/registry';
 global.__uploadsDir = __dirname + '/content/uploads';
 
-require('dotenv').config({path:"./.env"})
+require('dotenv').config({ path: "./.env" })
 if (process.env.aerialhelper === "true" || process.env.aerialhelper === true) {
   require("./scripts/aeriallaptop/aerialhelper");
 }
-var colors = require('colors');
 
+var fs = require('fs');
+var https = require('https');
+var colors = require('colors');
 const express = require("express");
 const app = express();
+var httpsoptions;
 const cookieParser = require('cookie-parser');
+
+var CertConfig = require('./CreateCertificate');
+let crt = new CertConfig();
+crt.Create(process.env.host, "HomeUploader", process.env.USER || process.env.USERNAME);
+
+
+if (process.env.protocol == 'https') {
+  httpsoptions = {
+    key: fs.readFileSync('./cert/key.pem'),
+    cert: fs.readFileSync('./cert/crt.pem')
+  }
+}
 
 // CLI constants
 const optionDefinitions = [
@@ -24,12 +41,12 @@ const cliArgsParsed = JSON.parse(cliArgs);
 
 // CLI arg handling
 if (cliArgsParsed.configure) {
-require("./scripts/appUtil/configure");
+  require("./scripts/appUtil/configure");
 }
 
 // Exit if there is no configuration
 if (process.env.port == undefined) {
-  console.log("X ".brightRed.bold+".env does not exist! Please run with the ".red+"--configure".brightRed.bgGray+" flag to generate it!".red);
+  console.log("X ".brightRed.bold + ".env does not exist! Please run with the ".red + "--configure".brightRed.bgGray + " flag to generate it!".red);
   process.exit()
 }
 
@@ -60,8 +77,20 @@ app.use(express.static('content/static'));
 initRoutes(app);
 app.set('view engine', 'ejs');
 app.post('/uploadfile', uploadRoute.upload);
-// Open app.
-app.listen(process.env.port, () => {
-  console.log(`FilingSaucer started successfully on port ${process.env.port}!`.green.bold);
-  console.log(`To change configuration options, please run application with --configure (-c)`.green.italic);
-});
+
+
+
+if (process.env.protocol == 'https') {
+  const sslserver = https.createServer(httpsoptions, app);
+
+  sslserver.listen(process.env.port, () => {
+    console.log(`FilingSaucer started successfully on port ${process.env.port}!`.green.bold);
+    console.log(`To change configuration options, please run application with --configure (-c)`.green.italic);
+  });
+} else {
+  // Open app.
+  app.listen(process.env.port, () => {
+    console.log(`FilingSaucer started successfully on port ${process.env.port}!`.green.bold);
+    console.log(`To change configuration options, please run application with --configure (-c)`.green.italic);
+  });
+}
