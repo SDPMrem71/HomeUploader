@@ -19,44 +19,53 @@
   <meta property="og:image" content="">
 </head>
 
-<body>
+<body style="background-color: black;">
   <div class="titlebar">
     <a href="/history">
       <i class="fa-solid fa-list"></i> History </a>
   </div>
-  <div class="jumbotron">
-    <p align="center">
-      <a>
-        <img src="../icon.png" width="200" height="200" />
-      </a>
-    </p>
-    <h1 align="center">Filing Saucer</h1>
-    <div class="container col-sm-12" id="choose-files" oncopy="return false" oncut="return false"
-      onpaste="return false">
-      <form align="center" action="/uploadfile" method="post" enctype="multipart/form-data">
-        <hr>
-        <h4>Upload File:</h4>
-        <input class="grayButton" style="border-radius: 4px;" type="file" name="file" id="uploads" multiple />
-        <br>
-        <br>
-        <input class="blueButton" type="submit" name="upload" value="Upload">
-      </form>
-    </div>
+  <div class="jumbotron vh-100">
+
+    <img class="img-fluid rounded mx-auto d-block" src="../icon.png" width="200" height="200" />
+
+    <h1 align="center">Welcome</h1>
+    <h3 align="center">Upload on Home Computer</h2>
+      <hr>
+      <div class="container col-sm-12" id="choose-files" oncopy="return false" oncut="return false"
+        onpaste="return false">
+
+        <div>
+          <h4 class="text-info">Upload File:</h4>
+          <br/>
+          <form class="form mx-md-2" align="center" action="/uploadfile" method="post" enctype="multipart/form-data">
+            <div class="form-group mx-sm-1">
+              <input class="form-control formInput mx-2 mb-lg-1" type="file" name="file" id="uploads" multiple />
+              <input class="btn btn-primary blueButton w-auto mx-2 mt-lg-1" type="submit" name="upload"
+                value="Upload">
+            </div>
+          </form>
+        </div>
+
+      </div>
   </div>
-  <div class="jumbotron">
-    <p align="center">
-      <a href="https://github.com/Aerial-Laptop/Filing-Saucer/">
-        <img alt="GitHub // Filing Saucer"
-          src="https://img.shields.io/badge/GitHub-Filing%20Saucer-0099D2?style=for-the-badge" />
+  <div class="jumbotron h-100">
+    <div class="container-fluid mx-auto">
+      <a href="https://github.com/SDPMrem71/HomeUploader" class="row">
+        <img class="img-fluid mx-auto d-block" alt="GitHub" src="github_logo.png" />
       </a>
-    <details align="center">
-      <summary>
-        <b>Disclaimer / License</b>
-      </summary> Aerial Laptop, Enbyte, and any other contributors/maintainers are not responsible for any aspect of
-      user-hosted instances per "Disclaimer of Warranty" & "Limitation of Liability" in the <a
-        href="https://www.gnu.org/licenses/agpl-3.0-standalone.html">AGPL-3.0-only</a>
-      <a href="https://spdx.org/licenses/AGPL-3.0-only.html">(SPDX)</a> license.
-    </details>
+      <span class="row badge badge-success mx-auto d-flex" style="width: fit-content;">GitHub</span>
+    </div>
+
+    <div class="container">
+      <details align="center">
+        <summary>
+          <b>Disclaimer / License</b>
+        </summary> Aerial Laptop, Enbyte, and any other contributors/maintainers are not responsible for any aspect of
+        user-hosted instances per "Disclaimer of Warranty" & "Limitation of Liability" in the <a
+          href="https://www.gnu.org/licenses/agpl-3.0-standalone.html">AGPL-3.0-only</a>
+        <a href="https://spdx.org/licenses/AGPL-3.0-only.html">(SPDX)</a> license.
+      </details>
+    </div>
   </div>
   <p class="text-center text-muted">
     <small>Uploaded files are occasionally purged and furthermore are subject to manual deletion. The host bears no

@@ -27,9 +27,9 @@ class CertConfig {
 
             var attrs = [
                 { name: 'commonName', value: host },
-                { name: 'organizationName', value: siteName },//Public knowledge
-                { name: 'emailAddress', value: `${Admin}@gmail.com` },
-                { name: 'localityName', value: 'Moon' }
+                { name: 'organizationName', value: siteName },
+                // { name: 'emailAddress', value: `${Admin}@gmail.com` },
+                // { name: 'localityName', value: 'Moon' }
             ];
 
             var pems = selfsigned.generate(attrs, {
@@ -39,7 +39,7 @@ class CertConfig {
                 extensions: [{ name: 'basicConstraints', cA: true }], // certificate extensions array
                 pkcs7: true, // include PKCS#7 as part of the output (default: false)
                 clientCertificate: true // generate client cert signed by the original key (default: false)
-                , clientCertificateCN: Admin // client certificate's common name (default: 'John Doe jdoe123')
+                //, clientCertificateCN: Admin // client certificate's common name (default: 'John Doe jdoe123')
             });
             fs.writeFileSync(this.#keyPath, pems.private, {
                 encoding: 'utf-8',
