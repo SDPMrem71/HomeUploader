@@ -4,6 +4,7 @@ node_modules/**
 uploads/**
 registry/**
 cert/**
+HomeUpload_SilentRun_log.txt
 !**/.init
 .idea/**
 .env

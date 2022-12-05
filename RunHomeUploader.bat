@@ -1,11 +1,13 @@
 echo off
 cls
-
+SET Hide=0
+Set LogFileName="HomeUpload_SilentRun_log.txt"
 rem ---------- for Argument passing --------------
 SET UserChoice=%1
 
 if NOT "%UserChoice%" == "" (
-    goto Selection
+    SET Hide=1
+	goto Selection
     )
 rem ---------------------------------------------
 
@@ -32,27 +34,29 @@ if %UserChoice%==6 (goto NoSelection)
 
 
 :StartServer
-cmd /k npm run StartServer
-
+if %Hide%==1 ( npm run StartServer >> %LogFileName%
+)else cmd /k npm run StartServer
 goto finally
 
 :StopServer
-cmd /k npm run StopServer
-
+if %Hide%==1 ( npm run StopServer >> %LogFileName%
+)else cmd /k npm run StopServer
 goto finally
 
 :RestartServer
-cmd /k npm run RestartServer
-
+if %Hide%==1 ( npm run RestartServer >> %LogFileName%
+)else cmd /k npm run RestartServer
 goto finally
 
 :DeleteServer
-cmd /k npm run DeleteServer
+if %Hide%==1 ( npm run DeleteServer >> %LogFileName%
+)else cmd /k npm run DeleteServer
 
 goto finally
 
 :ShowDetail
-cmd /k npm run info
+if %Hide%==1 ( npm run info >> %LogFileName%
+)else cmd /k npm run info
 
 goto finally
 
@@ -60,5 +64,5 @@ goto finally
 echo No Choice were selected. bye!
 
 :finally
-pause
+if %Hide%==0 pause
 exit
