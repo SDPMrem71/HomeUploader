@@ -1,5 +1,7 @@
 echo off
 cls
+set _date=%DATE% - %TIME%
+
 SET Hide=0
 Set LogFileName="HomeUpload_SilentRun_log.txt"
 rem ---------- for Argument passing --------------
@@ -34,28 +36,48 @@ if %UserChoice%==6 (goto NoSelection)
 
 
 :StartServer
-if %Hide%==1 ( npm run StartServer >> %LogFileName%
+if %Hide%==1 ( 
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ------------------------------ %_date% ---------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    npm run StartServer >> %LogFileName%
 )else cmd /k npm run StartServer
 goto finally
 
 :StopServer
-if %Hide%==1 ( npm run StopServer >> %LogFileName%
+if %Hide%==1 ( 
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ------------------------------ %_date% ---------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    npm run StopServer >> %LogFileName%
 )else cmd /k npm run StopServer
 goto finally
 
 :RestartServer
-if %Hide%==1 ( npm run RestartServer >> %LogFileName%
+if %Hide%==1 ( 
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%echo ::::::::::::: ------------------------------ %_date% ---------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    npm run RestartServer >> %LogFileName%
 )else cmd /k npm run RestartServer
 goto finally
 
 :DeleteServer
-if %Hide%==1 ( npm run DeleteServer >> %LogFileName%
+if %Hide%==1 ( 
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ------------------------------ %_date% ---------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    npm run DeleteServer >> %LogFileName%
 )else cmd /k npm run DeleteServer
 
 goto finally
 
 :ShowDetail
-if %Hide%==1 ( npm run info >> %LogFileName%
+if %Hide%==1 ( 
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ------------------------------ %_date% ---------------------------------- ::::::::::::: >> %LogFileName%
+    echo ::::::::::::: ---------------------------------------------------------------------------------------- ::::::::::::: >> %LogFileName%
+    npm run info >> %LogFileName%
 )else cmd /k npm run info
 
 goto finally
