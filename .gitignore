@@ -9,4 +9,5 @@ HomeUpload_SilentRun_log.txt
 .idea/**
 .env
 dist/**
+.vscode/**
 filing-saucer.tar.gz
