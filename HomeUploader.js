@@ -61,7 +61,7 @@ const url = `${process.env.protocol}://${process.env.host}`
 const port = `${process.env.port}`
 
 global.urlFull = `${url}:${port}/`
-console.log("URL is set to ".blue + urlFull + "\nTo force port removal, please edit your configuration.".blue);
+console.log("URL is set to ".blue + urlFull);
 
 // Require controller and routing
 const uploadRoute = require(`${__scriptsDir}/routing/upload`);
@@ -82,12 +82,12 @@ if (process.env.protocol == 'https') {
   const sslserver = https.createServer(httpsoptions, app);
 
   sslserver.listen(process.env.port, () => {
-    console.log(`FilingSaucer started successfully on port ${process.env.port}!`.green.bold);
+    console.log(`Started successfully on port ${process.env.port}!`.green.bold);
     console.log(`To change configuration options, please run application with --configure (-c)`.green.italic);
   });
 } else {
   app.listen(process.env.port, () => {
-    console.log(`FilingSaucer started successfully on port ${process.env.port}!`.green.bold);
+    console.log(`Started successfully on port ${process.env.port}!`.green.bold);
     console.log(`To change configuration options, please run application with --configure (-c)`.green.italic);
   });
 }

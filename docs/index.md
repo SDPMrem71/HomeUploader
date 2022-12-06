@@ -1,48 +1,48 @@
-## About
+# About
+
 Filing Saucer is a file sharing server accessed through a web GUI.
 
 ----
-## Automatic Installation (macOS/Linux)
-Use the installation script:
-```
-bash <(curl -s https://al.enbyte.dev/dist/install.sh) -cb 1
-```
+
+## Automatic Installation
+
+Not available But after manual installation There are 2 script available for production use.
+
+* `RunHomeUploader.sh`
+* `RunHomeUploader.bat`
+
+`RunHomeUploader.bat` Is able to run with argument to start,stop and etc or normaly.
 
 ----
+
 ## Manual Installation (macOS/Linux/Windows)
 
 ### Clone Codebase
 
 Clone the main branch
-```
-git clone https://github.com/enbytedev/Filing-Saucer
-```
 
-Change into the cloned directory and run the following command:[^1]
-```
-npm i
-```
+    git clone https://github.com/SDPMrem71/HomeUploader
 
+Change into the cloned directory and run the following command:
+
+    npm install
 
 ### Configure
-Run the following command from within the project directory to configure Filing Saucer:
-```
-node main.js -c
-```
 
+Run the following command from within the project directory to configure:
+
+    node HomeUploader.js -c
 
 ### Run
-The entry point for Aerial Laptop codebases is `main.js`
 
-```
-node main.js
-```
+The entry point for codebases is `HomeUploader.js`
 
-It is highly recommended that you install [PM2 by Keymetrics], a node process manager.[^2]
-```
-pm2 start main.js
-``` 
+    node HomeUploader.js
+    or
+    npm run test
+
+It is highly recommended that you run with [PM2 by Keymetrics], a node process manager which is available with.
+
+    npm run StartServer
 
 ----
-[^1]: Changing directories is done via `cd` on most systems.
-[^2]: It is recommended to use the argument *name* when starting a process with PM2. This is done by appending it to the command to create `pm2 start main.js --name Filing-Saucer`.
