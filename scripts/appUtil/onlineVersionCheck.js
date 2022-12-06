@@ -1,6 +1,6 @@
 const fs = require('fs');
 const https = require('https');
-const { url, majVersion, minVersion, codebase } = { "url": "https://al.enbyte.dev/info/Filing-Saucer.json", "codebase": "FilingSaucer", "majVersion": 2, "minVersion": 0 };
+const { url, majVersion, minVersion, codebase } = require('../../version.json');
 
 var colors = require('colors');
 var colors = require('colors/safe');
@@ -23,7 +23,7 @@ function versionCheck() {
                     useFallback();
                     return
                 }
-                console.log("\n--------".blue.bold + `\nAerial`.brightRed.bold + ` Laptop`.brightBlue.bold + " Helper".blue.bold)
+                console.log("\n--------".blue.bold + `\Home`.brightRed.bold + ` Uploader`.brightBlue.bold + " Helper".blue.bold)
                 if (json.status === "LEGACY") {
                     var status = colors.yellow;
                 } else if (json.status === "ABANDONED") {

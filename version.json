@@ -1,0 +1,10 @@
+{
+    "url": "https://raw.githubusercontent.com/SDPMrem71/HomeUploader/main/version.json",
+    "codebase": "HomeUploader",
+    "majVersion": 2,
+    "minVersion": 3,
+    "name": "Home Network Upload Center",
+    "status": "Development",
+    "maintainers": "Masoud Rahmani",
+    "repo": "https://github.com/SDPMrem71/HomeUploader/"
+}
